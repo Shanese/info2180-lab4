@@ -1,0 +1,59 @@
+var message;
+window.onload = function()
+	{
+		var boundary=document.querySelectorAll('.boundary');
+		var end=document.querySelector('#end');
+		var start=document.querySelector('#start');
+		var maze=document.querySelector('#maze');
+		maze.onmouseover = function ()
+		{
+			
+		}
+		start.onclick = function()
+		{
+			restart(boundary);
+		}
+		end.onmouseover = function()
+		{ 
+			gameover();
+		}
+		for (var i = 0; i <boundary.length; i++) 
+			{
+				boundary[i].onmouseover = function()
+				{
+					changeColour(boundary);
+				}	
+ 			} 
+	}
+
+	function changeColour(element)
+	{
+		for (var x = 0; x < element.length; x++) {
+			element[x].setAttribute("class","boundary youlose");
+		}
+	}
+
+	function gameover()
+	{ 
+		var youlose=document.querySelectorAll('.youlose');
+		if (youlose.length > 0) 
+			{
+				document.getElementById('status').textContent="You Lose";
+			} else 
+			{
+				document.getElementById('status').textContent="You Win";
+			}
+	}
+
+	function restart(element)
+	{
+		for (var x = 0; x < element.length; x++) 
+		{
+			element[x].setAttribute("class","boundary");
+		}
+	}
+
+	function cheater()
+	{
+
+	}
